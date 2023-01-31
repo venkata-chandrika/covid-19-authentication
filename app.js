@@ -48,7 +48,7 @@ const authenticateToken = (request, response, next) => {
   }
 };
 
-app.post("/login/", authenticateToken, async (request, response) => {
+app.post("/login/", async (request, response) => {
   const { username, password } = request.body;
   const selectUserQuery = `select * from user where username='${username}';`;
   const dbUser = await db.get(selectUserQuery);
